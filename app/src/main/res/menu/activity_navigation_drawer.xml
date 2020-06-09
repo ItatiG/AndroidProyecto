@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:id="@+id/grpInicio">
+        <item
+            android:id="@+id/nav_inicio"
+            android:icon="@drawable/ic_home_black_24dp"
+            android:title="@string/menu_inicio" />
+    </group>
+
+    <group android:id="@+id/grpSeleccion">
+        <item
+            android:id="@+id/nav_contacto"
+            android:icon="@drawable/ic_contacts_black_24dp"
+            android:title="@string/menu_contactos" />
+        <item
+            android:id="@+id/nav_mapa"
+            android:icon="@drawable/ic_place_black_24dp"
+            android:title="@string/menu_mapa" />
+    </group>
+
+    <group android:id="@+id/grpRedesSociales">
+        <item
+            android:id="@+id/nav_twitter"
+            android:icon="@drawable/ic_people_black_24dp"
+            android:title="@string/menu_twitter" />
+    </group>
+
+    <group android:id="@+id/grpCerrarSesion">
+        <item
+            android:id="@+id/nav_cerrar_sesion"
+            android:icon="@drawable/ic_exit_to_app_black_24dp"
+            android:title="@string/menu_cerrar_sesion" />
+    </group>
+
+</menu>

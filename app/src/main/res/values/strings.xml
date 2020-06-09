@@ -1,0 +1,30 @@
+<resources>
+    <!--Login y Registro-->
+    <string name="app_name">Android Proyecto</string>
+    <string name="correo_electronico">Correo electrónico</string>
+    <string name="contrasena">Contraseña</string>
+    <string name="iniciar_sesion">Iniciar sesión</string>
+    <string name="registrarse">Registrarse</string>
+    <string name="nombre_usuario">Nombre del usuario</string>
+    <string name="nombre_completo">Nombre completo</string>
+    <string name="rep_contrasena">Repetir contraseña</string>
+    <string name="title_activity_navigation">NavigationActivity</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Ajustes</string>
+
+    <string name="home_second">Home Second</string>
+    <string name="bienvenido">¡¡¡Bienvenido!!!</string>
+    <string name="menu_inicio">Inicio</string>
+    <string name="menu_contactos">Contactos</string>
+    <string name="menu_mapa">Mapa</string>
+    <string name="menu_twitter">Twitter</string>
+    <string name="menu_cerrar_sesion">Cerrar sesión</string>
+    <string name="agregar_contacto">Agregar contacto</string>
+    <string name="proyecto">Proyecto Android</string>
+    <string name="objetivo">En esta aplicación encontrará una lista de los teléfonos de emergencia. Además, de un mapa indicando la ubicación de cada uno.</string>
+
+</resources>

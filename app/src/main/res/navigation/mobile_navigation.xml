@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_inicio">
+
+    <fragment
+        android:id="@+id/nav_inicio"
+        android:name="com.example.androidproyecto.ui.inicio.InicioFragment"
+        android:label="@string/menu_inicio"
+        tools:layout="@layout/fragment_inicio">
+
+        <action
+            android:id="@+id/action_HomeFragment_to_HomeSecondFragment"
+            app:destination="@id/nav_home_second" />
+    </fragment>
+    <fragment
+        android:id="@+id/nav_home_second"
+        android:name="com.example.androidproyecto.ui.inicio.HomeSecondFragment"
+        android:label="@string/home_second"
+        tools:layout="@layout/fragment_home_second">
+        <action
+            android:id="@+id/action_HomeSecondFragment_to_HomeFragment"
+            app:destination="@id/nav_inicio" />
+
+        <argument
+            android:name="myArg"
+            app:argType="string" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_contacto"
+        android:name="com.example.androidproyecto.ui.contacto.ContactoFragment"
+        android:label="@string/menu_contactos"
+        tools:layout="@layout/fragment_recyclerview_contacto" />
+
+    <fragment
+        android:id="@+id/nav_mapa"
+        android:name="com.example.androidproyecto.ui.mapa.MapaFragment"
+        android:label="@string/menu_mapa"
+        tools:layout="@layout/fragment_mapa" />
+
+    <fragment
+        android:id="@+id/nav_twitter"
+        android:name="com.example.androidproyecto.ui.twitter.TwitterFragment"
+        android:label="@string/menu_twitter"
+        tools:layout="@layout/fragment_twitter" />
+
+</navigation>
