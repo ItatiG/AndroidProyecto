@@ -1,9 +1,11 @@
 package com.example.androidproyecto
 
+import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.widget.Toast
 import com.example.androidproyecto.ui.inicio.InicioFragment
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -30,9 +32,17 @@ class MainActivity : AppCompatActivity()
         val strEmail: String = edtLoginCorreoElectronico.text.toString().trim()
         val strPassword: String = edtLoginContraseña.text.toString().trim()
 
-        Log.e("TAG", "Email: $strEmail")
-        Log.e("TAG", "Password: $strPassword")
+        val sharedPref = getSharedPreferences("mi_usuario", Context.MODE_PRIVATE)
+        var correo: String? = sharedPref.getString("correo","")
+        var contrasena: String? = sharedPref.getString("contraseña","")
 
-        startActivity(Intent(this, NavigationActivity::class.java))
+        if (strEmail == correo && strPassword == contrasena)
+        {
+            startActivity(Intent(this, NavigationActivity::class.java))
+        }
+        else
+        {
+            Toast.makeText(this, "El usuario y/o contraseña son incorrectas.", Toast.LENGTH_LONG).show()
+        }
     }
 }

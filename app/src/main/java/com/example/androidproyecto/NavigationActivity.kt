@@ -1,7 +1,9 @@
 package com.example.androidproyecto
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
+import android.view.MenuItem
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.navigation.NavigationView
@@ -43,14 +45,37 @@ class NavigationActivity : AppCompatActivity() {
         navView.setupWithNavController(navController)
     }
 
-    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+    //Menú de opciones para abrir los ajustes
+    override fun onCreateOptionsMenu(menu: Menu): Boolean
+    {
         // Inflate the menu; this adds items to the action bar if it is present.
         menuInflater.inflate(R.menu.navigation, menu)
         return true
     }
 
-    override fun onSupportNavigateUp(): Boolean {
+    override fun onSupportNavigateUp(): Boolean
+    {
         val navController = findNavController(R.id.nav_host_fragment)
         return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
     }
+
+    //Abrir  la ActivitySettings
+    override fun onOptionsItemSelected(item: MenuItem): Boolean
+    {
+        return when(item.itemId)
+        {
+            R.id.itAjustes -> {
+                startActivity(Intent(this, SettingsActivity::class.java))
+                true
+            }
+
+            R.id.itWebService -> {
+                startActivity(Intent(this, PruebaActivity::class.java))
+                true
+            }
+
+            else -> super.onOptionsItemSelected(item)
+        }
+    }
+
 }

@@ -1,6 +1,7 @@
 package com.example.androidproyecto
 
 import android.annotation.SuppressLint
+import android.content.Context
 import android.content.Intent
 import android.graphics.BitmapFactory
 import android.net.Uri
@@ -10,6 +11,7 @@ import android.os.Environment
 import android.provider.MediaStore
 import android.text.TextUtils
 import android.util.Log
+import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.core.content.FileProvider
 import com.example.androidproyecto.data.Usuario
@@ -84,6 +86,7 @@ class RegistroActivity : AppCompatActivity()
                     val nuevoUsuario = Usuario(1, strUsername, strNombreCompleto, strCorreoElectronico, strContrasena, strFotoPerfil)
 
                     usuarioViewModel.guardarUsuario(nuevoUsuario)
+                    crearPreferencia()
                     Snackbar.make(view, "Usuario agregado", Snackbar.LENGTH_LONG)
                         .setAction("Regresar") { onBackPressed() }.show()
                 }
@@ -202,6 +205,16 @@ class RegistroActivity : AppCompatActivity()
         BitmapFactory.decodeFile(currentPhotoPath, bmOptions)?.also { bitmap->
             imgRegistrarseUsuario.setImageBitmap(bitmap)
             Log.e("TAG", "currenPhotoPath: $currentPhotoPath")
+        }
+    }
+
+    private fun crearPreferencia()
+    {
+        val sharedPref = getSharedPreferences("mi_usuario", Context.MODE_PRIVATE) ?: return
+        with (sharedPref.edit()) {
+            putString("correo", edtRegistrarseEmail.text.toString().trim())
+            putString("contraseña", edtRegistrarseContrasena.text.toString().trim())
+            commit()
         }
     }
 }
