@@ -1,11 +1,15 @@
 package com.example.androidproyecto
 
+import android.app.NotificationChannel
+import android.app.NotificationManager
 import android.content.Context
 import android.content.Intent
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
+import com.example.androidproyecto.background.MusicaService
 import com.example.androidproyecto.ui.inicio.InicioFragment
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -45,4 +49,6 @@ class MainActivity : AppCompatActivity()
             Toast.makeText(this, "El usuario y/o contraseña son incorrectas.", Toast.LENGTH_LONG).show()
         }
     }
+
+
 }

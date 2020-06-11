@@ -25,7 +25,7 @@
     <string name="menu_cerrar_sesion">Cerrar sesión</string>
     <string name="agregar_contacto">Agregar contacto</string>
     <string name="proyecto">Proyecto Android</string>
-    <string name="objetivo">En esta aplicación encontrará una lista de los teléfonos de emergencia. Además, de un mapa indicando la ubicación de cada uno.</string>
+    <string name="objetivo">En esta aplicación encontrará una lista de los teléfonos de emergencia.</string>
     <string name="title_activity_settings">Settings</string>
 
     <!-- Preference Titles -->

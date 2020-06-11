@@ -1,6 +1,9 @@
 package com.example.androidproyecto
 
+import android.app.NotificationChannel
+import android.app.NotificationManager
 import android.content.Intent
+import android.os.Build
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
@@ -15,6 +18,7 @@ import androidx.navigation.ui.setupWithNavController
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
+import com.example.androidproyecto.background.MusicaService
 
 class NavigationActivity : AppCompatActivity() {
 
@@ -26,11 +30,14 @@ class NavigationActivity : AppCompatActivity() {
         val toolbar: Toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
 
-        /*val fab: FloatingActionButton = findViewById(R.id.fab)
+        //Crear un canal de notificación
+        crearCanalNotificacion()
+
+        val fab: FloatingActionButton = findViewById(R.id.fab)
         fab.setOnClickListener { view ->
-            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                .setAction("Action", null).show()
-        }*/
+            //Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG) .setAction("Action", null).show()
+            startService(Intent(this, MusicaService::class.java))
+        }
         val drawerLayout: DrawerLayout = findViewById(R.id.drawer_layout)
         val navView: NavigationView = findViewById(R.id.nav_view)
         val navController = findNavController(R.id.nav_host_fragment)
@@ -78,4 +85,26 @@ class NavigationActivity : AppCompatActivity() {
         }
     }
 
+    //Crear un canal de notificaciones
+    private fun crearCanalNotificacion()
+    {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O)
+        {
+            // Create the NotificationChannel
+            val name = "musica_channel"//getString(R.string.channel_name)
+            val descriptionText = "Música en primer plano"//getString(R.string.channel_description)
+            val importance = NotificationManager.IMPORTANCE_LOW //IMPORTANCE_DEFAULT
+            val mChannel = NotificationChannel(CHANNEL_ID, name, importance)
+            mChannel.description = descriptionText
+            // Register the channel with the system; you can't change the importance
+            // or other notification behaviors after this
+            val notificationManager = getSystemService(NOTIFICATION_SERVICE) as NotificationManager
+            notificationManager.createNotificationChannel(mChannel)
+        }
+    }
+
+    companion object
+    {
+        val CHANNEL_ID = "com.example.androidproyecto.musica_channel"
+    }
 }
